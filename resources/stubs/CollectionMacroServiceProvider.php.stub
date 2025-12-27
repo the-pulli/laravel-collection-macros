@@ -1,0 +1,32 @@
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Support\Collection;
+use Illuminate\Support\ServiceProvider;
+
+class CollectionMacroServiceProvider extends ServiceProvider
+{
+    public function boot(): void
+    {
+        if (! Collection::hasMacro('mapToCollection')) {
+            Collection::macro('mapToCollection', app(\Pulli\LaravelCollectionMacros\Macros\MapToCollection::class)());
+        }
+
+        if (! Collection::hasMacro('mapToCollectionFrom')) {
+            Collection::macro('mapToCollectionFrom', app(\Pulli\LaravelCollectionMacros\Macros\MapToCollectionFrom::class)());
+        }
+
+        if (! Collection::hasMacro('positive')) {
+            Collection::macro('positive', app(\Pulli\LaravelCollectionMacros\Macros\Positive::class)());
+        }
+
+        if (! Collection::hasMacro('recursiveToArray')) {
+            Collection::macro('recursiveToArray', app(\Pulli\LaravelCollectionMacros\Macros\RecursiveToArray::class)());
+        }
+
+        if (! Collection::hasMacro('recursiveToArrayFrom')) {
+            Collection::macro('recursiveToArrayFrom', app(\Pulli\LaravelCollectionMacros\Macros\RecursiveToArrayFrom::class)());
+        }
+    }
+}

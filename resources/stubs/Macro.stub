@@ -1,0 +1,3 @@
+        if (! Collection::hasMacro('$MACRO$')) {
+            Collection::macro('$MACRO$', app(\$CLASS$::class)());
+        }
