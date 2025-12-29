@@ -13,6 +13,11 @@ class CreateOrUpdateServiceProviderCommand extends Command
 {
     public $signature = 'pulli-collection-macros:create-or-update';
 
+    protected $aliases = [
+        'pcm:create-or-update',
+        'pcm:refresh',
+    ];
+
     public $description = 'Creates or updates the corresponding ServiceProvider';
 
     public function handle(): int

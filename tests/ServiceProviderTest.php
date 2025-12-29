@@ -10,31 +10,47 @@ beforeEach(function () {
 });
 
 it('can execute the command to publish the service provider', function () {
-    $this->artisan(CreateOrUpdateServiceProviderCommand::class)
-        ->assertSuccessful()
-        ->expectsOutputToContain('Creating Provider...')
-        ->expectsOutputToContain(sprintf('Published Provider to: %s', $this->actual))
-        ->doesntExpectOutputToContain('Overriding Provider...');
-
-    compareFiles($this->actual, $this->expected);
+    executeCommandAndCheckOutput(CreateOrUpdateServiceProviderCommand::class);
+    compareFiles();
 });
+
+it('can execute the command via defined aliases to publish the service provider', function (string $alias) {
+    executeCommandAndCheckOutput($alias);
+    compareFiles();
+})->with([
+    'pcm:create-or-update',
+    'pcm:refresh',
+]);
 
 it('can publish the service provider from the package itself', function () {
     $this->artisan('vendor:publish', ['--tag' => 'pulli-collection-macros-provider'])
         ->assertSuccessful();
 
-    compareFiles($this->actual, $this->expected);
+    compareFiles();
 });
 
-function compareFiles(string $file1, string $file2): void
+function executeCommandAndCheckOutput(string $command): void
 {
+    $test = test();
+
+    $test->artisan($command)
+        ->assertSuccessful()
+        ->expectsOutputToContain('Creating Provider...')
+        ->expectsOutputToContain(sprintf('Published Provider to: %s', $test->actual))
+        ->doesntExpectOutputToContain('Overriding Provider...');
+}
+
+function compareFiles(): void
+{
+    $test = test();
+
     try {
-        $actual = File::get($file1);
-        $expected = File::get($file2);
+        $actual = File::get($test->actual);
+        $expected = File::get($test->expected);
     } catch (FileNotFoundException $e) {
-        test()->fail('File not found: '.$e->getMessage());
+        $test->fail('File not found: '.$e->getMessage());
     }
 
-    expect($file1)->toBeFile()
+    expect($test->actual)->toBeFile()
         ->and($actual)->toBe($expected);
 }

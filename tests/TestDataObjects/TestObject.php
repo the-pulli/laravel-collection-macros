@@ -1,6 +1,6 @@
 <?php
 
-namespace Pulli\LaravelCollectionMacros\Tests\Data;
+namespace Pulli\LaravelCollectionMacros\Tests\TestDataObjects;
 
 readonly class TestObject
 {

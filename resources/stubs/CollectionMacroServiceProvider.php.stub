@@ -5,10 +5,25 @@ namespace App\Providers;
 use Illuminate\Support\Collection;
 use Illuminate\Support\ServiceProvider;
 
+/*
+ * This is a dummy Service Provider.
+ *
+ * It's purpose is to help the PhpStorm Laravel Idea plugin to generate the corresponding helper functions.
+ *
+ * The macros are actually already registered in the package Service Provider.
+ */
 class CollectionMacroServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
+        if (! Collection::hasMacro('implodeToStringable')) {
+            Collection::macro('implodeToStringable', app(\Pulli\LaravelCollectionMacros\Macros\ImplodeToStringable::class)());
+        }
+
+        if (! Collection::hasMacro('joinToStringable')) {
+            Collection::macro('joinToStringable', app(\Pulli\LaravelCollectionMacros\Macros\JoinToStringable::class)());
+        }
+
         if (! Collection::hasMacro('mapToCollection')) {
             Collection::macro('mapToCollection', app(\Pulli\LaravelCollectionMacros\Macros\MapToCollection::class)());
         }

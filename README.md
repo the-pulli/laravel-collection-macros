@@ -39,11 +39,33 @@ return [
 
 ### Macros
 
+- implodeToStringable
+- joinToStringable
 - mapToCollectionFrom
 - mapToCollection
 - positive
 - recursiveToArrayFrom
 - recursiveToArray
+
+#### `implodeToStringable`
+
+Implodes the collection to a Stringable object.
+
+```php
+$collection = Collection::make(['Jane', 'John'])->implodeToStringable(', ');
+
+// Stringable of "Jane, John"
+```
+
+#### `joinToStringable`
+
+Joins the collection to a Stringable object.
+
+```php
+$collection = Collection::make(['Jane', 'John', 'Jack'])->joinToStringable(', ', ' and ');
+
+// Stringable of "Jane, John and Jack"
+```
 
 #### `mapToCollectionFrom`
 
