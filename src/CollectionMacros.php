@@ -8,6 +8,7 @@ class CollectionMacros
     {
         return [
             'even' => \Pulli\LaravelCollectionMacros\Macros\Even::class,
+            'explode' => \Pulli\LaravelCollectionMacros\Macros\Explode::class,
             'firstAndLast' => \Pulli\LaravelCollectionMacros\Macros\FirstAndLast::class,
             'firstAndLastKey' => \Pulli\LaravelCollectionMacros\Macros\FirstAndLastKey::class,
             'implodeToStringable' => \Pulli\LaravelCollectionMacros\Macros\ImplodeToStringable::class,

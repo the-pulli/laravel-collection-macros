@@ -20,6 +20,10 @@ class CollectionMacroServiceProvider extends ServiceProvider
             Collection::macro('even', app(\Pulli\LaravelCollectionMacros\Macros\Even::class)());
         }
 
+        if (! Collection::hasMacro('explode')) {
+            Collection::macro('explode', app(\Pulli\LaravelCollectionMacros\Macros\Explode::class)());
+        }
+
         if (! Collection::hasMacro('firstAndLast')) {
             Collection::macro('firstAndLast', app(\Pulli\LaravelCollectionMacros\Macros\FirstAndLast::class)());
         }

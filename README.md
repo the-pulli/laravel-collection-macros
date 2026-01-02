@@ -67,6 +67,16 @@ $collection = Collection::range(0, 6)->even(true);
 // returns [0 => 0, 2 => 2, 4 => 4, 6 => 6]
 ```
 
+#### `explode`
+
+Returns a collection from an exploded string. It uses the same signature as the native explode function.
+
+```php
+$collection = Collection::explode(';', 'Twenty;Banana;Boats');
+
+// returns ['Twenty', 'Banana', 'Boats']
+```
+
 #### `firstAndLast`
 
 Returns the first and last element as array.
