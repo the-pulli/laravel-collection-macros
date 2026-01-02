@@ -16,7 +16,7 @@ class Positive
     public function __invoke(): Closure
     {
         return function (): bool {
-            return $this->count() > 0;
+            return $this->isNotEmpty();
         };
     }
 }

@@ -16,6 +16,18 @@ class CollectionMacroServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
+        if (! Collection::hasMacro('even')) {
+            Collection::macro('even', app(\Pulli\LaravelCollectionMacros\Macros\Even::class)());
+        }
+
+        if (! Collection::hasMacro('firstAndLast')) {
+            Collection::macro('firstAndLast', app(\Pulli\LaravelCollectionMacros\Macros\FirstAndLast::class)());
+        }
+
+        if (! Collection::hasMacro('firstAndLastKey')) {
+            Collection::macro('firstAndLastKey', app(\Pulli\LaravelCollectionMacros\Macros\FirstAndLastKey::class)());
+        }
+
         if (! Collection::hasMacro('implodeToStringable')) {
             Collection::macro('implodeToStringable', app(\Pulli\LaravelCollectionMacros\Macros\ImplodeToStringable::class)());
         }
@@ -30,6 +42,10 @@ class CollectionMacroServiceProvider extends ServiceProvider
 
         if (! Collection::hasMacro('mapToCollectionFrom')) {
             Collection::macro('mapToCollectionFrom', app(\Pulli\LaravelCollectionMacros\Macros\MapToCollectionFrom::class)());
+        }
+
+        if (! Collection::hasMacro('odd')) {
+            Collection::macro('odd', app(\Pulli\LaravelCollectionMacros\Macros\Odd::class)());
         }
 
         if (! Collection::hasMacro('positive')) {

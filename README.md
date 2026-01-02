@@ -39,13 +39,55 @@ return [
 
 ### Macros
 
+- even
+- firstAndLast
+- firstAndLastKey
 - implodeToStringable
 - joinToStringable
-- mapToCollectionFrom
 - mapToCollection
+- mapToCollectionFrom
+- odd
 - positive
 - recursiveToArrayFrom
 - recursiveToArray
+
+#### `even`
+
+Filter the collection to only integer values and return the even ones.
+
+```php
+$collection = Collection::range(0, 6)->even();
+
+// returns [0, 2, 4, 6]
+
+// optional you can pass true as parameter to preserve the original array keys
+
+$collection = Collection::range(0, 6)->even(true);
+
+// returns [0 => 0, 2 => 2, 4 => 4, 6 => 6]
+```
+
+#### `firstAndLast`
+
+Returns the first and last element as array.
+Optional a callable and a default value for the first and last element can be specified.
+
+```php
+[$first, $last] = Collection::make(['Jane', 'John', 'Joe'])->firstAndLast();
+
+// $first = 'Jane', $last = 'Joe'
+```
+
+#### `firstAndLastKey`
+
+Returns the first and last key as array.
+Optional a callable and a default value for the first and last element can be specified.
+
+```php
+[$first, $last] = Collection::make(['Jane', 'John', 'Joe'])->firstAndLastKey();
+
+// $first = 0, $last = 2
+```
 
 #### `implodeToStringable`
 
@@ -78,6 +120,22 @@ $collection->get(0)->get('test'); // returns 1
 
 // Item has a toArray() public method, then it can be wrapped into a collection like this:
 $collection = Collection::mapToCollectionFrom([Item(), Item()], true);
+```
+
+#### `odd`
+
+Filter the collection to only integer values and return the odd ones.
+
+```php
+$collection = Collection::range(0, 6)->odd();
+
+// returns [1, 3, 5]
+
+// optional you can pass true as parameter to preserve the original array keys
+
+$collection = Collection::range(0, 6)->odd(true);
+
+// returns [1 => 1, 3 => 3, 5 => 5]
 ```
 
 #### `positive`
