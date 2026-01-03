@@ -2,6 +2,17 @@
 
 All notable changes to `laravel-collection-macros` will be documented in this file.
 
+## v1.2.0 - 2026-01-03
+
+### Added
+
+The following macros:
+
+- even
+- firstAndLast
+- firstAndLastKey
+- odd
+
 ## v1.1.0 - 2026-01-03
 
 ### Added
