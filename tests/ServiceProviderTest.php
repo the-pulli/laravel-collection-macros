@@ -14,6 +14,19 @@ it('can execute the command to publish the service provider', function () {
     compareFiles();
 });
 
+it('can execute the command twice to override the service provider', function () {
+    executeCommandAndCheckOutput(CreateOrUpdateServiceProviderCommand::class);
+    compareFiles();
+
+    $this->artisan(CreateOrUpdateServiceProviderCommand::class)
+        ->assertSuccessful()
+        ->expectsOutputToContain('Overriding Provider...')
+        ->expectsOutputToContain(sprintf('Published Provider to: %s', $this->actual))
+        ->doesntExpectOutputToContain('Creating Provider...');
+
+    compareFiles();
+});
+
 it('can execute the command via defined aliases to publish the service provider', function (string $alias) {
     executeCommandAndCheckOutput($alias);
     compareFiles();

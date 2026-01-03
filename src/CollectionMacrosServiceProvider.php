@@ -11,6 +11,7 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class CollectionMacrosServiceProvider extends PackageServiceProvider
 {
+    #[\Override]
     public function configurePackage(Package $package): void
     {
         /*
@@ -26,7 +27,7 @@ class CollectionMacrosServiceProvider extends PackageServiceProvider
             ->hasInstallCommand(function (InstallCommand $command) {
                 $command
                     ->publishConfigFile()
-                    ->askToStarRepoOnGitHub('pulli/laravel-collection-macros');
+                    ->askToStarRepoOnGitHub('the-pulli/laravel-collection-macros');
             });
     }
 

@@ -17,7 +17,10 @@ class JoinToStringable
 {
     public function __invoke(): Closure
     {
-        return function (string $glue, string $finalGlue = ''): Stringable {
+        return function (
+            string $glue,
+            string $finalGlue = '',
+        ): Stringable {
             return Str::of($this->join($glue, $finalGlue));
         };
     }

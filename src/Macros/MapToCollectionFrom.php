@@ -6,6 +6,9 @@ use Closure;
 use Illuminate\Support\Collection;
 use Pulli\LaravelCollectionMacros\IsArrayable;
 
+use function array_walk;
+use function is_array;
+
 /**
  * Returns all nested array items as Collection
  *

@@ -39,17 +39,17 @@ return [
 
 ### Macros
 
-- even
-- firstAndLast
-- firstAndLastKey
-- implodeToStringable
-- joinToStringable
-- mapToCollection
-- mapToCollectionFrom
-- odd
-- positive
-- recursiveToArrayFrom
-- recursiveToArray
+- [`even`](#even)
+- [`firstAndLast`](#firstandlast)
+- [`firstAndLastKey`](#firstandlastkey)
+- [`implodeToStringable`](#implodetostringable)
+- [`joinToStringable`](#jointostringable)
+- [`mapToCollection`](#maptocollection)
+- [`mapToCollectionFrom`](#maptocollectionfrom)
+- [`odd`](#odd)
+- [`positive`](#positive)
+- [`recursiveToArrayFrom`](#recursivetoarrayfrom)
+- [`recursiveToArray`](#)
 
 #### `even`
 
@@ -119,6 +119,19 @@ $collection = Collection::make(['Jane', 'John', 'Jack'])->joinToStringable(', ',
 // Stringable of "Jane, John and Jack"
 ```
 
+#### `mapToCollection`
+
+Maps all arrays/objects recursively to a collection object of collections, which allow nested function calling.
+
+```php
+$collection = Collection::make([['test' => 1], 2, 3])->mapToCollection([4, 5]);
+
+$collection->get(0)->get('test'); // returns 1
+
+// Item has a toArray() public method, then it can be wrapped into a collection like this:
+$collection = Collection::make([Item(), Item()])->mapToCollection([Item()]);
+```
+
 #### `mapToCollectionFrom`
 
 Static method: Maps all arrays/objects recursively to a collection object of collections, which allow nested function calling.
@@ -155,6 +168,15 @@ Returns a boolean value, if the collection contains elements or not.
 ```php
 Collection::make([1, 2, 3])->positive() // returns true
 Collection::make()->positive() // returns false
+```
+
+#### `recursiveToArray`
+
+It maps all arrays/objects recursively to an array.
+
+```php
+// Item has a toArray() public method, then it can be wrapped into the collection like this:
+$array = Collection::make(['item1' => Item(), 'item2' => Item()])->recursiveToArray();
 ```
 
 #### `recursiveToArrayFrom`

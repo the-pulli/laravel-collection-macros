@@ -5,6 +5,9 @@ namespace Pulli\LaravelCollectionMacros\Macros;
 use Closure;
 use Pulli\LaravelCollectionMacros\IsArrayable;
 
+use function array_walk;
+use function is_array;
+
 /**
  * Returns recursively all items to array from the given array
  *
