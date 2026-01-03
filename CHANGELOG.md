@@ -2,6 +2,15 @@
 
 All notable changes to `laravel-collection-macros` will be documented in this file.
 
+## v1.1.0 - 2026-01-03
+
+### Added
+
+The following macros:
+
+- implodeToStringable
+- joinToStringable
+
 ## v1.0.0 - 2026-01-03
 
 - Initial release
