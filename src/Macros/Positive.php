@@ -5,7 +5,7 @@ namespace Pulli\LaravelCollectionMacros\Macros;
 use Closure;
 
 /**
- * Returns true if the collection has more than one element
+ * Returns true if the collection is not empty (has at least one element)
  *
  * @mixin \Illuminate\Support\Collection
  *

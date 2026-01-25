@@ -6,13 +6,14 @@ use Closure;
 use Illuminate\Support\Collection;
 
 /**
- * Returns all items as Collections
+ * Recursively maps all arrays/objects to nested Collection objects
  *
- * @param  array  $ary
+ * @param  array  $ary  Additional array to merge (default [])
+ * @param  bool  $deep  When true, also converts Arrayable objects recursively (default false)
  *
  * @mixin \Illuminate\Support\Collection
  *
- * @return \Illuminate\Support\Collection<mixed, \Illuminate\Support\Collection>
+ * @return \Illuminate\Support\Collection<mixed, mixed>
  */
 class MapToCollection
 {

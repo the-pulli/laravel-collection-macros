@@ -8,10 +8,17 @@ use Illuminate\Support\Facades\File;
 
 use function sprintf;
 
+/**
+ * Artisan command to create or update the CollectionMacroServiceProvider
+ *
+ * This command publishes the service provider stub to the application's
+ * Providers directory, allowing users to customize macro registration.
+ */
 class CreateOrUpdateServiceProviderCommand extends Command
 {
     public $signature = 'pulli-collection-macros:create-or-update';
 
+    /** @var array<int, string> */
     protected $aliases = [
         'pcm:create-or-update',
         'pcm:refresh',
@@ -19,6 +26,11 @@ class CreateOrUpdateServiceProviderCommand extends Command
 
     public $description = 'Creates or updates the corresponding ServiceProvider';
 
+    /**
+     * Execute the console command
+     *
+     * @return int Command exit code (SUCCESS or FAILURE)
+     */
     public function handle(): int
     {
         try {

@@ -5,13 +5,13 @@ namespace Pulli\LaravelCollectionMacros\Macros;
 use Closure;
 
 /**
- * Returns recursively all items to array
+ * Recursively converts all nested objects with toArray() to arrays
  *
- * @param  array  $ary
+ * @param  array  $ary  Additional array to merge (default [])
  *
  * @mixin \Illuminate\Support\Collection
  *
- * @return array<mixed, array>
+ * @return array<mixed, mixed>
  */
 class RecursiveToArray
 {

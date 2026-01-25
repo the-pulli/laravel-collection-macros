@@ -3,32 +3,39 @@
 namespace Pulli\LaravelCollectionMacros\Macros;
 
 use Closure;
-use Pulli\LaravelCollectionMacros\IsArrayable;
+use Pulli\LaravelCollectionMacros\Helper;
 
 use function array_walk;
 use function is_array;
 
 /**
- * Returns recursively all items to array from the given array
+ * Static method to recursively convert all nested objects with toArray() to arrays
  *
- * @param  array  $ary
+ * @param  array  $ary  The array to convert
+ * @param  int  $maxDepth  Maximum recursion depth to prevent stack overflow (default 512)
  *
  * @mixin \Illuminate\Support\Collection
  *
- * @return array<mixed, array>
+ * @return array<mixed, mixed>
  */
 class RecursiveToArrayFrom
 {
+    public const MAX_DEPTH = 512;
+
     public function __invoke(): Closure
     {
-        return function (array $ary): array {
-            $closure = function (&$ary) {
+        return function (array $ary, int $maxDepth = RecursiveToArrayFrom::MAX_DEPTH): array {
+            if ($maxDepth <= 0) {
+                return $ary;
+            }
+
+            $closure = function (&$ary) use ($maxDepth) {
                 if (is_array($ary)) {
-                    $ary = static::recursiveToArrayFrom($ary);
+                    $ary = static::recursiveToArrayFrom($ary, $maxDepth - 1);
                 }
 
-                if (IsArrayable::check($ary)) {
-                    $ary = static::recursiveToArrayFrom($ary->toArray());
+                if (Helper::isArrayable($ary)) {
+                    $ary = static::recursiveToArrayFrom($ary->toArray(), $maxDepth - 1);
                 }
             };
 

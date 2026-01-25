@@ -3,13 +3,13 @@
 use Illuminate\Support\Collection;
 
 it('returns true for a collection with more than 0 items', function () {
-    $data = Collection::make(['test']);
+    $actual = Collection::make(['test'])->positive();
 
-    expect($data->positive())->toBeTrue();
+    expect($actual)->toBeTrue();
 });
 
 it('returns false for a collection with 0 items', function () {
-    $data = Collection::make();
+    $actual = Collection::make()->positive();
 
-    expect($data->positive())->toBeFalse();
+    expect($actual)->toBeFalse();
 });

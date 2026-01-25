@@ -9,6 +9,9 @@ use Illuminate\Support\Stringable;
 /**
  * Returns joined elements as Stringable
  *
+ * @param  string  $glue  The glue string between elements
+ * @param  string  $finalGlue  The glue string before the last element (default '')
+ *
  * @mixin \Illuminate\Support\Collection
  *
  * @return \Illuminate\Support\Stringable

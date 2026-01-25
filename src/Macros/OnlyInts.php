@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Support\Collection;
 
 /**
- * Filters the collection to only odd integer values
+ * Filters the collection to only integer values
  *
  * @param  bool  $preserveKeys  Whether to preserve original array keys (default false)
  *
@@ -14,14 +14,14 @@ use Illuminate\Support\Collection;
  *
  * @return \Illuminate\Support\Collection<int|string, int>
  */
-class Odd
+class OnlyInts
 {
     public function __invoke(): Closure
     {
         return function (bool $preserveKeys = false): Collection {
-            $odd = $this->onlyInts()->reject(fn (int $value): bool => $value % 2 === 0);
+            $ints = $this->filter(fn (mixed $value): bool => is_int($value));
 
-            return $preserveKeys ? $odd : $odd->values();
+            return $preserveKeys ? $ints : $ints->values();
         };
     }
 }

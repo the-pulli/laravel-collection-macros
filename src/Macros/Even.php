@@ -6,19 +6,20 @@ use Closure;
 use Illuminate\Support\Collection;
 
 /**
- * Returns even integers as Collection
+ * Filters the collection to only even integer values
+ *
+ * @param  bool  $preserveKeys  Whether to preserve original array keys (default false)
  *
  * @mixin \Illuminate\Support\Collection
  *
- * @return \Illuminate\Support\Collection<int, int>
+ * @return \Illuminate\Support\Collection<int|string, int>
  */
 class Even
 {
     public function __invoke(): Closure
     {
         return function (bool $preserveKeys = false): Collection {
-            $even = $this->filter(fn (mixed $value): bool => is_int($value))
-                ->filter(fn (int $value): bool => $value % 2 === 0);
+            $even = $this->onlyInts()->filter(fn (int $value): bool => $value % 2 === 0);
 
             return $preserveKeys ? $even : $even->values();
         };

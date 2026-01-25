@@ -9,6 +9,9 @@ use Illuminate\Support\Stringable;
 /**
  * Returns imploded elements as Stringable
  *
+ * @param  callable|string|null  $value  The key to implode or a callback
+ * @param  string|null  $glue  The glue string between elements
+ *
  * @mixin \Illuminate\Support\Collection
  *
  * @return \Illuminate\Support\Stringable

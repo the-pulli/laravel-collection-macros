@@ -14,7 +14,7 @@ it('returns the modified imploded items as stringable with defined glue', functi
     checkStringableExpectations($actual, expected: 'TAYLOR, FREEK, CALEB are awesome!');
 })->with('stringable');
 
-it('returns glued values for given array key', function () {
+it('returns glued values for given collection key', function () {
     $actual = Collection::make([
         ['fruits' => 'Bananas', 'vehicles' => 'Boats'],
         ['fruits' => 'Apples', 'vehicles' => 'Cars'],

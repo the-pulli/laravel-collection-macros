@@ -1,0 +1,33 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+
+parameters:
+    paths:
+        - src
+
+    level: 8
+
+    ignoreErrors:
+        # Macros use $this bound to Collection context - these methods exist at runtime
+        -
+            identifier: method.notFound
+            path: src/Macros/*
+        -
+            identifier: staticMethod.notFound
+            path: src/Macros/*
+        # @mixin generic types - Collection generics are complex in macro context
+        -
+            identifier: missingType.generics
+            path: src/Macros/*
+        # Return type in macros - closures are bound to Collection at runtime
+        -
+            identifier: return.type
+            path: src/Macros/*
+        # Explode separator is validated by PHP at runtime
+        -
+            message: '#Parameter \#1 \$separator of function explode expects non-empty-string#'
+            path: src/Macros/Explode.php
+        # File::get() throws FileNotFoundException but PHPStan can't see through the Facade
+        -
+            identifier: catch.neverThrown
+            path: src/Commands/*
