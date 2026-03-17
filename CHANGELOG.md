@@ -2,6 +2,12 @@
 
 All notable changes to `laravel-collection-macros` will be documented in this file.
 
+## v1.4.1 - 2026-03-17
+
+- Add Laravel 13 compatibility
+- Update `illuminate/*` constraints to include `^13.0`
+- Update `orchestra/testbench` constraint to include `^11.0`
+
 ## v1.4.0 - 2026-01-25
 
 ### What's New
