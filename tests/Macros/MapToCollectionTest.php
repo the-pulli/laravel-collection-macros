@@ -6,6 +6,13 @@ use Pulli\LaravelCollectionMacros\Tests\TestDataObjects\OtherObject;
 use Pulli\LaravelCollectionMacros\Tests\TestDataObjects\ParentObject;
 use Pulli\LaravelCollectionMacros\Tests\TestDataObjects\TestObject;
 
+it('returns empty collection for empty input', function () {
+    $data = Collection::make([])->mapToCollection();
+
+    expect($data)->toBeInstanceOf(Collection::class)
+        ->and($data->isEmpty())->toBeTrue();
+});
+
 it('wraps all arrays into collection objects', function () {
     $data = Collection::make([
         ['test' => ['test' => '1.1']],

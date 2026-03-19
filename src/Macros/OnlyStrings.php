@@ -20,11 +20,11 @@ class OnlyStrings
 {
     public function __invoke(): Closure
     {
-        return function (bool $strict = false, bool $preserveKeys = false): Collection {
-            $isStringable = function (mixed $value): bool {
-                return $value instanceof Stringable || (is_object($value) && method_exists($value, '__toString'));
-            };
+        $isStringable = function (mixed $value): bool {
+            return $value instanceof Stringable || (is_object($value) && method_exists($value, '__toString'));
+        };
 
+        return function (bool $strict = false, bool $preserveKeys = false) use ($isStringable): Collection {
             $strings = $this
                 ->filter(fn (mixed $value): bool => $strict ? is_string($value) : (is_string($value) || $isStringable($value)))
                 ->map(fn (mixed $value): string => $isStringable($value) ? $value->__toString() : $value);

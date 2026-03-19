@@ -5,7 +5,8 @@ namespace Pulli\LaravelCollectionMacros\Macros;
 use Closure;
 
 /**
- * Returns true if the collection is not empty (has at least one element)
+ * Returns true if the collection has at least one element (i.e. is not empty).
+ * Named "positive" to convey a collection with a positive item count.
  *
  * @mixin \Illuminate\Support\Collection
  *

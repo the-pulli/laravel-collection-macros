@@ -5,6 +5,10 @@ use Pulli\LaravelCollectionMacros\Tests\TestDataObjects\ChildObject;
 use Pulli\LaravelCollectionMacros\Tests\TestDataObjects\OtherObject;
 use Pulli\LaravelCollectionMacros\Tests\TestDataObjects\ParentObject;
 
+it('returns empty array for empty collection', function () {
+    expect(Collection::make([])->recursiveToArray())->toBe([]);
+});
+
 it('can call recursiveToArray as method on collection', function () {
     $collection = Collection::make([
         new ParentObject(

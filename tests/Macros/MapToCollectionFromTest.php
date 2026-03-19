@@ -6,6 +6,31 @@ use Pulli\LaravelCollectionMacros\Tests\TestDataObjects\OtherObject;
 use Pulli\LaravelCollectionMacros\Tests\TestDataObjects\ParentObject;
 use Pulli\LaravelCollectionMacros\Tests\TestDataObjects\TestObject;
 
+it('returns empty collection for empty input', function () {
+    $data = Collection::mapToCollectionFrom([]);
+
+    expect($data)->toBeInstanceOf(Collection::class)
+        ->and($data->isEmpty())->toBeTrue();
+});
+
+it('wraps top-level items without recursion when maxDepth is zero', function () {
+    $data = Collection::mapToCollectionFrom([
+        ['nested' => ['deep' => 'value']],
+    ], false, 0);
+
+    expect($data)->toBeInstanceOf(Collection::class)
+        ->and($data[0])->toBeArray();
+});
+
+it('only converts first level when maxDepth is one', function () {
+    $data = Collection::mapToCollectionFrom([
+        ['nested' => ['deep' => 'value']],
+    ], false, 1);
+
+    expect($data[0])->toBeInstanceOf(Collection::class)
+        ->and($data[0]['nested'])->toBeArray();
+});
+
 it('wraps all arrays into collection objects', function () {
     $data = Collection::mapToCollectionFrom([
         ['test' => ['test' => '1.1']],

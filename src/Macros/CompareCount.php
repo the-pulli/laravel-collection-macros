@@ -15,7 +15,7 @@ use Pulli\LaravelCollectionMacros\Helper;
  *
  * @mixin \Illuminate\Support\Collection
  *
- * @return \Illuminate\Support\Collection<int, array>
+ * @return ($shouldZip is true ? \Illuminate\Support\Collection<int, array<mixed>> : \Illuminate\Support\Collection<array-key, mixed>)
  *
  * @throws \InvalidArgumentException When counts do not match
  */
