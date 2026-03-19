@@ -3,13 +3,14 @@
 namespace Pulli\LaravelCollectionMacros\Macros;
 
 use Closure;
+use Illuminate\Support\Collection;
 
 /**
  * Recursively converts all nested objects with toArray() to arrays
  *
  * @param  array  $ary  Additional array to merge (default [])
  *
- * @mixin \Illuminate\Support\Collection
+ * @mixin Collection
  *
  * @return array<mixed, mixed>
  */

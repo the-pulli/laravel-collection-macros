@@ -2,6 +2,22 @@
 
 namespace Pulli\LaravelCollectionMacros;
 
+use Pulli\LaravelCollectionMacros\Macros\CompareCount;
+use Pulli\LaravelCollectionMacros\Macros\Even;
+use Pulli\LaravelCollectionMacros\Macros\Explode;
+use Pulli\LaravelCollectionMacros\Macros\FirstAndLast;
+use Pulli\LaravelCollectionMacros\Macros\FirstAndLastKey;
+use Pulli\LaravelCollectionMacros\Macros\ImplodeToStringable;
+use Pulli\LaravelCollectionMacros\Macros\JoinToStringable;
+use Pulli\LaravelCollectionMacros\Macros\MapToCollection;
+use Pulli\LaravelCollectionMacros\Macros\MapToCollectionFrom;
+use Pulli\LaravelCollectionMacros\Macros\Odd;
+use Pulli\LaravelCollectionMacros\Macros\OnlyInts;
+use Pulli\LaravelCollectionMacros\Macros\OnlyStrings;
+use Pulli\LaravelCollectionMacros\Macros\Positive;
+use Pulli\LaravelCollectionMacros\Macros\RecursiveToArray;
+use Pulli\LaravelCollectionMacros\Macros\RecursiveToArrayFrom;
+
 /**
  * Registry of all available collection macros
  *
@@ -17,21 +33,21 @@ class CollectionMacros
     public function all(): array
     {
         return [
-            'compareCount' => \Pulli\LaravelCollectionMacros\Macros\CompareCount::class,
-            'even' => \Pulli\LaravelCollectionMacros\Macros\Even::class,
-            'explode' => \Pulli\LaravelCollectionMacros\Macros\Explode::class,
-            'firstAndLast' => \Pulli\LaravelCollectionMacros\Macros\FirstAndLast::class,
-            'firstAndLastKey' => \Pulli\LaravelCollectionMacros\Macros\FirstAndLastKey::class,
-            'implodeToStringable' => \Pulli\LaravelCollectionMacros\Macros\ImplodeToStringable::class,
-            'joinToStringable' => \Pulli\LaravelCollectionMacros\Macros\JoinToStringable::class,
-            'mapToCollection' => \Pulli\LaravelCollectionMacros\Macros\MapToCollection::class,
-            'mapToCollectionFrom' => \Pulli\LaravelCollectionMacros\Macros\MapToCollectionFrom::class,
-            'odd' => \Pulli\LaravelCollectionMacros\Macros\Odd::class,
-            'onlyInts' => \Pulli\LaravelCollectionMacros\Macros\OnlyInts::class,
-            'onlyStrings' => \Pulli\LaravelCollectionMacros\Macros\OnlyStrings::class,
-            'positive' => \Pulli\LaravelCollectionMacros\Macros\Positive::class,
-            'recursiveToArray' => \Pulli\LaravelCollectionMacros\Macros\RecursiveToArray::class,
-            'recursiveToArrayFrom' => \Pulli\LaravelCollectionMacros\Macros\RecursiveToArrayFrom::class,
+            'compareCount' => CompareCount::class,
+            'even' => Even::class,
+            'explode' => Explode::class,
+            'firstAndLast' => FirstAndLast::class,
+            'firstAndLastKey' => FirstAndLastKey::class,
+            'implodeToStringable' => ImplodeToStringable::class,
+            'joinToStringable' => JoinToStringable::class,
+            'mapToCollection' => MapToCollection::class,
+            'mapToCollectionFrom' => MapToCollectionFrom::class,
+            'odd' => Odd::class,
+            'onlyInts' => OnlyInts::class,
+            'onlyStrings' => OnlyStrings::class,
+            'positive' => Positive::class,
+            'recursiveToArray' => RecursiveToArray::class,
+            'recursiveToArrayFrom' => RecursiveToArrayFrom::class,
         ];
     }
 }

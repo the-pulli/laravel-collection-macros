@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Collection;
 use Pulli\LaravelCollectionMacros\Tests\TestDataObjects\ChildObject;
 use Pulli\LaravelCollectionMacros\Tests\TestDataObjects\OtherObject;
@@ -30,7 +31,7 @@ it('only converts one level deep when maxDepth is one', function () {
         }
     };
 
-    $outer = new class($inner) implements \Illuminate\Contracts\Support\Arrayable
+    $outer = new class($inner) implements Arrayable
     {
         public function __construct(private readonly object $inner) {}
 

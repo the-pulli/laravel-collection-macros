@@ -10,9 +10,9 @@ use Illuminate\Support\Collection;
  *
  * @param  bool  $preserveKeys  Whether to preserve original array keys (default false)
  *
- * @mixin \Illuminate\Support\Collection
+ * @mixin Collection
  *
- * @return \Illuminate\Support\Collection<int|string, int>
+ * @return Collection<int|string, int>
  */
 class OnlyInts
 {

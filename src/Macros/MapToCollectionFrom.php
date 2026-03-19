@@ -16,9 +16,9 @@ use function is_array;
  * @param  bool  $deep  When true, also converts Arrayable objects recursively (default false)
  * @param  int  $maxDepth  Maximum recursion depth to prevent stack overflow (default 512)
  *
- * @mixin \Illuminate\Support\Collection
+ * @mixin Collection
  *
- * @return \Illuminate\Support\Collection<mixed, mixed>
+ * @return Collection<mixed, mixed>
  */
 class MapToCollectionFrom
 {

@@ -12,9 +12,9 @@ use Stringable;
  * @param  bool  $strict  When true, only accepts native strings; when false, also converts Stringable objects (default false)
  * @param  bool  $preserveKeys  Whether to preserve original array keys (default false)
  *
- * @mixin \Illuminate\Support\Collection
+ * @mixin Collection
  *
- * @return \Illuminate\Support\Collection<int|string, string>
+ * @return Collection<int|string, string>
  */
 class OnlyStrings
 {

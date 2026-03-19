@@ -14,9 +14,9 @@ use function explode;
  * @param  string  $string  The input string to split
  * @param  int  $limit  Maximum number of elements (default PHP_INT_MAX)
  *
- * @mixin \Illuminate\Support\Collection
+ * @mixin Collection
  *
- * @return \Illuminate\Support\Collection<int, string>
+ * @return Collection<int, string>
  */
 class Explode
 {

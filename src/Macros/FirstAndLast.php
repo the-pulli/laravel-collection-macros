@@ -3,6 +3,7 @@
 namespace Pulli\LaravelCollectionMacros\Macros;
 
 use Closure;
+use Illuminate\Support\Collection;
 
 /**
  * Returns the first and last element of the collection as an array
@@ -12,7 +13,7 @@ use Closure;
  * @param  callable|null  $last  Optional callback to find the last element
  * @param  mixed  $lastDefault  Default value if last element not found
  *
- * @mixin \Illuminate\Support\Collection
+ * @mixin Collection
  *
  * @return array{0: mixed, 1: mixed}
  */

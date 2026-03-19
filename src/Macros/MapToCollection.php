@@ -11,9 +11,9 @@ use Illuminate\Support\Collection;
  * @param  array  $ary  Additional array to merge (default [])
  * @param  bool  $deep  When true, also converts Arrayable objects recursively (default false)
  *
- * @mixin \Illuminate\Support\Collection
+ * @mixin Collection
  *
- * @return \Illuminate\Support\Collection<mixed, mixed>
+ * @return Collection<mixed, mixed>
  */
 class MapToCollection
 {

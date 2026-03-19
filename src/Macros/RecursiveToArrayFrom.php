@@ -3,6 +3,7 @@
 namespace Pulli\LaravelCollectionMacros\Macros;
 
 use Closure;
+use Illuminate\Support\Collection;
 use Pulli\LaravelCollectionMacros\Helper;
 
 use function array_walk;
@@ -14,7 +15,7 @@ use function is_array;
  * @param  array  $ary  The array to convert
  * @param  int  $maxDepth  Maximum recursion depth to prevent stack overflow (default 512)
  *
- * @mixin \Illuminate\Support\Collection
+ * @mixin Collection
  *
  * @return array<mixed, mixed>
  */

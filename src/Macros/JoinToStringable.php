@@ -3,6 +3,7 @@
 namespace Pulli\LaravelCollectionMacros\Macros;
 
 use Closure;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Illuminate\Support\Stringable;
 
@@ -12,9 +13,9 @@ use Illuminate\Support\Stringable;
  * @param  string  $glue  The glue string between elements
  * @param  string  $finalGlue  The glue string before the last element (default '')
  *
- * @mixin \Illuminate\Support\Collection
+ * @mixin Collection
  *
- * @return \Illuminate\Support\Stringable
+ * @return Stringable
  */
 class JoinToStringable
 {

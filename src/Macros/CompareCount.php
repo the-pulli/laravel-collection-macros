@@ -13,11 +13,11 @@ use Pulli\LaravelCollectionMacros\Helper;
  * @param  mixed  $countable  An array, Countable, or object with count() method
  * @param  bool  $shouldZip  When true, returns zipped collection; when false, returns original collection (default true)
  *
- * @mixin \Illuminate\Support\Collection
+ * @mixin Collection
  *
- * @return ($shouldZip is true ? \Illuminate\Support\Collection<int, array<mixed>> : \Illuminate\Support\Collection<array-key, mixed>)
+ * @return ($shouldZip is true ? Collection<int, array<mixed>> : Collection<array-key, mixed>)
  *
- * @throws \InvalidArgumentException When counts do not match
+ * @throws InvalidArgumentException When counts do not match
  */
 class CompareCount
 {
