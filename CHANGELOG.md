@@ -2,6 +2,18 @@
 
 All notable changes to `laravel-collection-macros` will be documented in this file.
 
+## v1.4.3 - 2026-03-19
+
+### Code quality improvements and expanded test coverage
+
+- Fix `CompareCount` `@return` docblock to use conditional type reflecting both `$shouldZip` paths
+- Move `OnlyStrings` `$isStringable` closure out of returned `Closure` to avoid recreation on every call
+- Improve `Positive` docblock to clarify semantic meaning
+- Add `--memory-limit=512M` to PHPStan `analyse` script to prevent crashes
+- Set `minimum-stability` to `stable` in `composer.json`
+- Add tests for empty collections in `CompareCount`, `RecursiveToArray`, `MapToCollection`, `MapToCollectionFrom`
+- Add `maxDepth` edge case tests (0 and 1) for `RecursiveToArrayFrom` and `MapToCollectionFrom`
+
 ## v1.4.2 - 2026-03-17
 
 Add Laravel 13 to CI test matrix
